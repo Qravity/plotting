@@ -41,6 +41,14 @@ class Plot2D(object):
 		"""Set legend"""
 		self.legend = legend
 		
+	def set_marker(self, marker=''):
+		"""Set legend"""
+		self.marker = marker
+	
+	def set_label(self, label=''):
+		"""Set legend"""
+		self.label = label
+		
 	def set_min_max(self):
 		"""Set min, max for displayig"""
 		xmin = 0.25*min(self.x)
@@ -86,6 +94,7 @@ class PointPlot2DErr(Plot2D):
 class ScatterPlot2D(Plot2D):
 	"""2D plot of scatter"""
 	def plot(self):
-		self.axarr.scatter(self.x, self.y, 'ro')	
+		self.axarr.scatter(self.x, self.y, label=self.label, c=self.marker, s=35)
+		self.axarr.legend(loc='upper right', scatterpoints=1)
 	
 	
